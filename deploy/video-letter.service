@@ -1,0 +1,16 @@
+# /etc/systemd/system/video-letter.service
+# 서버의 /home/ubuntu/video-letter/.env 에 ADMIN_PASSWORD, HOST=127.0.0.1, PORT=5005 를 둔다.
+[Unit]
+Description=Video letter (letter.hot-news.app)
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/video-letter
+ExecStart=/home/ubuntu/video-letter/.venv/bin/python app.py
+Restart=on-failure
+# 같은 서버의 Hot-News, auto-insta 를 지키기 위한 메모리 상한
+MemoryMax=400M
+
+[Install]
+WantedBy=multi-user.target

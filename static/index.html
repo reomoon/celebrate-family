@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fffbe6">
+  <title>영상편지</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Gaegu:wght@400;700&display=swap">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="masthead">
+    <button type="button" class="cake" id="cake" aria-label="축하 폭죽 터뜨리기">
+      <svg class="cake-svg" viewBox="0 0 240 140" aria-hidden="true">
+        <g id="sprinkles"></g>
+        <ellipse class="c-plate" cx="120" cy="119" rx="66" ry="9"/>
+        <path class="c-body" d="M74 80 V114 Q120 124 166 114 V80 Z"/>
+        <path class="c-filling" d="M75 99 Q120 108 165 99"/>
+        <path class="c-frost" d="M73 80 H167 V87 Q166 93 161 90 Q158 99 153 98 Q148 97 149 91 Q142 95 136 93 Q132 104 126 103 Q120 101 121 94 Q113 96 107 95 Q103 103 97 102 Q92 100 94 93 Q87 92 83 90 Q80 98 76 95 Q73 92 73 87 Z"/>
+        <ellipse class="c-top" cx="120" cy="80" rx="46" ry="9"/>
+        <path class="c-edge" d="M74 80 A46 9 0 0 1 166 80"/>
+        <g class="c-dots">
+          <rect x="92" y="81" width="6" height="2.6" rx="1.3" fill="#ff7aa2" transform="rotate(20 95 82)"/>
+          <rect x="146" y="80" width="6" height="2.6" rx="1.3" fill="#6ec3f4" transform="rotate(-30 149 81)"/>
+          <rect x="128" y="84" width="6" height="2.6" rx="1.3" fill="#5fd3a4" transform="rotate(40 131 85)"/>
+          <rect x="108" y="84" width="6" height="2.6" rx="1.3" fill="#ffd23f" transform="rotate(-15 111 85)"/>
+        </g>
+        <g class="c-candle">
+          <rect x="98" y="52" width="8" height="30" rx="2" fill="#9fd8ff"/>
+          <path class="c-stripe" d="M98.5 61 L105.5 57 M98.5 71 L105.5 67"/>
+          <path class="c-wick" d="M102 52 V47"/>
+          <g class="flame"><path d="M102 29 Q109 39 107.5 43 Q106 48 102 48 Q98 48 96.5 43 Q95 39 102 29 Z"/><ellipse cx="102" cy="42.5" rx="2" ry="3.2"/></g>
+        </g>
+        <g class="c-candle">
+          <rect x="116" y="48" width="8" height="32" rx="2" fill="#ffb3c9"/>
+          <path class="c-stripe" d="M116.5 57 L123.5 53 M116.5 67 L123.5 63"/>
+          <path class="c-wick" d="M120 48 V43"/>
+          <g class="flame"><path d="M120 25 Q127 35 125.5 39 Q124 44 120 44 Q116 44 114.5 39 Q113 35 120 25 Z"/><ellipse cx="120" cy="38.5" rx="2" ry="3.2"/></g>
+        </g>
+        <g class="c-candle">
+          <rect x="134" y="52" width="8" height="30" rx="2" fill="#c9f2a6"/>
+          <path class="c-stripe" d="M134.5 61 L141.5 57 M134.5 71 L141.5 67"/>
+          <path class="c-wick" d="M138 52 V47"/>
+          <g class="flame"><path d="M138 29 Q145 39 143.5 43 Q142 48 138 48 Q134 48 132.5 43 Q131 39 138 29 Z"/><ellipse cx="138" cy="42.5" rx="2" ry="3.2"/></g>
+        </g>
+      </svg>
+    </button>
+
+    <nav class="nav" aria-label="메뉴">
+      <a href="#gift" data-nav="gift">GIFT</a>
+      <a href="#letter" data-nav="letter">LETTER</a>
+      <a href="#camera" data-nav="camera">CAMERA</a>
+      <a href="#hbd" data-nav="hbd">HBD</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- GIFT -->
+    <section class="view" data-view="gift">
+      <h1 class="headline"><span class="beat">두근두근</span> 선물을 골라주세요</h1>
+      <ul class="gifts" id="gifts"></ul>
+      <div class="empty" id="giftEmpty" hidden>
+        <div class="empty-art" data-gift-art></div>
+        <h2>아직 준비된 선물이 없어요</h2>
+        <p>CAMERA에서 영상을 올리면 선물 상자가 생겨요.</p>
+        <a class="btn btn-primary" href="#camera">선물 준비하러 가기</a>
+      </div>
+    </section>
+
+    <!-- LETTER -->
+    <section class="view" data-view="letter" hidden>
+      <div class="view-head">
+        <h1>마음을 담은 편지</h1>
+        <p>영상과 함께 남긴 메시지를 모아 두었어요</p>
+      </div>
+      <ul class="letters" id="letters"></ul>
+      <div class="empty" id="letterEmpty" hidden>
+        <h2>아직 도착한 편지가 없어요</h2>
+        <p>영상을 올릴 때 메시지를 함께 적으면 여기에 편지로 보여요.</p>
+      </div>
+    </section>
+
+    <!-- CAMERA -->
+    <section class="view" data-view="camera" hidden>
+      <div class="view-head">
+        <h1>선물 포장하기</h1>
+        <p>영상을 올리면 선물 상자 속에 쏙 담아 드려요</p>
+      </div>
+
+      <form class="panel login-form" id="loginForm" hidden>
+        <div class="login-art" data-gift-art></div>
+        <p class="login-text">선물을 포장하려면<br>비밀번호를 입력해 주세요</p>
+        <input class="input" type="password" id="passwordInput" autocomplete="current-password" placeholder="비밀번호" required>
+        <p class="form-error" id="loginError" role="alert" hidden></p>
+        <button type="submit" class="btn btn-primary">확인</button>
+      </form>
+
+      <div class="camera" id="cameraPanel" hidden>
+        <form class="panel upload-form" id="uploadForm" novalidate>
+          <div class="dropzone" id="dropzone">
+            <button type="button" class="dz-empty" id="dzEmpty">
+              <span class="dz-icon" data-gift-art></span>
+              <span class="dz-title"><span class="only-pointer">영상을 끌어다 놓거나 </span><em>영상 고르기</em></span>
+              <span class="dz-hint">MP4 · WebM · MOV · 최대 2GB</span>
+            </button>
+            <div class="dz-file" id="dzFile" hidden>
+              <span class="thumb thumb-sm" id="previewThumb"></span>
+              <div class="file-info">
+                <p class="file-name" id="fileName"></p>
+                <p class="file-meta" id="fileMeta"></p>
+                <button type="button" class="link-btn" id="changeFile">다른 영상 선택</button>
+              </div>
+            </div>
+            <input type="file" id="fileInput" accept="video/*" hidden>
+          </div>
+
+          <label class="field">
+            <span class="field-label">제목</span>
+            <input class="input" id="titleInput" maxlength="100" placeholder="예) From. 엄마" autocomplete="off">
+          </label>
+
+          <label class="field">
+            <span class="field-label">편지 <em>선택</em></span>
+            <textarea class="input input-hand" id="messageInput" rows="4" maxlength="2000" placeholder="전하고 싶은 마음을 적어 주세요"></textarea>
+          </label>
+
+          <div class="progress" id="progress" hidden>
+            <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+            <span class="progress-label" id="progressLabel">0%</span>
+          </div>
+          <p class="form-error" id="formError" role="alert" hidden></p>
+
+          <div class="form-foot">
+            <button type="button" class="btn" id="cancelUpload" hidden>업로드 취소</button>
+            <button type="submit" class="btn btn-primary" id="submitBtn" disabled>선물 포장하기</button>
+          </div>
+        </form>
+
+        <section>
+          <div class="section-title">
+            <h2>포장한 선물 <span class="count" id="packCount"></span></h2>
+            <button type="button" class="btn btn-sm" id="rewrapBtn" title="열어 본 선물을 다시 닫아요">모두 다시 포장</button>
+          </div>
+          <ul class="pack-list" id="packList"></ul>
+          <p class="pack-empty" id="packEmpty" hidden>아직 포장한 선물이 없어요.</p>
+        </section>
+
+        <button type="button" class="link-btn logout" id="logoutBtn">로그아웃</button>
+      </div>
+    </section>
+
+    <!-- HBD -->
+    <section class="view hbd" data-view="hbd" hidden>
+      <h1 class="hbd-title" id="hbdTitle" aria-label="Happy Birthday"></h1>
+      <p class="hbd-sub">오늘 하루, 세상에서 제일 행복하길 바라요</p>
+      <button type="button" class="btn btn-primary" id="hbdBurst">폭죽 한 번 더!</button>
+    </section>
+  </main>
+
+  <dialog class="letter-modal" id="letterDialog" aria-labelledby="letterTitle">
+    <div class="letter-wrap">
+      <button type="button" class="close-btn" id="letterClose" aria-label="닫기">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+      </button>
+      <div class="letter-sheet">
+        <video class="letter-video" id="letterVideo" controls playsinline autofocus></video>
+        <div class="letter-body">
+          <h2 class="letter-title" id="letterTitle"></h2>
+          <p class="letter-date" id="letterDate"></p>
+          <p class="letter-message" id="letterMessage"></p>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="drop-overlay" id="dropOverlay" hidden>
+    <div class="drop-card">
+      <div class="drop-gift" data-gift-art></div>
+      여기에 놓으면 선물로 포장할게요
+    </div>
+  </div>
+
+  <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

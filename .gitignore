@@ -1,0 +1,12 @@
+# 비밀 값 (비밀번호, 로그인 서명 키)
+.env
+.secret_key
+
+# 올린 영상과 목록 — 서버마다 따로 쌓인다
+uploads/
+videos.json
+videos.json.tmp
+
+__pycache__/
+*.pyc
+.venv/
